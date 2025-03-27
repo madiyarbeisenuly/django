@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
+from django.template.context_processors import media
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
+    'books',
 ]
 
 MIDDLEWARE = [
@@ -123,12 +126,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 from pathlib import Path
 import os
 
-# Определяем корневую директорию проекта
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Настраиваем путь к статическим файлам
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, 'myapp', 'static'),  # Указываем путь к статике
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
