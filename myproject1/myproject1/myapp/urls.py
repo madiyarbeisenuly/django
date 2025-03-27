@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import home, pavel_page
+from . import views  # Импортируем views
 
 urlpatterns = [
-    path('', home, name='home'),  
-    path('pavel/', pavel_page, name='pavel_page'),  
+    path('', views.home_view, name='home'),  # Открывает home.html
+    path('pavel/', views.pavel_view, name='pavel'),  # Открывает Pavel.html
 ]

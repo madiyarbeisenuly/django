@@ -1,7 +1,7 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('myapp.urls')),  # Убедись, что эта строка есть
+    path('', include('myapp.urls')),  # Подключаем myapp.urls
 ]
