@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог книг</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4 text-center">Каталог книг</h1>
+        <div class="row">
+            {% for book in books %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ book.title }}</h5>
+                        <p class="card-text"><strong>Автор:</strong> {{ book.author }}</p>
+                        <a href="{% url 'book_detail' book.id %}" class="btn btn-primary">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-center">Нет доступных книг.</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
